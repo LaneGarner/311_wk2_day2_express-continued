@@ -1,10 +1,10 @@
 const products = require('../data/products.js')
 
-const list = (req, res) => res.json(products)
+module.exports.list = (req, res) => res.json(products)
 
-const show = (req, res) => res.json(products.filter(product => product._id === parseInt(req.params.id)))
+module.exports.show = (req, res) => res.json(products.filter(product => product._id === parseInt(req.params.id)))
 
-const create = (req, res) => {
+module.exports.create = (req, res) => {
     products.push({
         _id: products.length + 1,
         ...req.body
@@ -13,8 +13,8 @@ const create = (req, res) => {
 }
 
 
-module.exports = {
-    list,
-    show,
-    create
-}
+// module.exports = {
+//     list,
+//     show,
+//     create
+// }

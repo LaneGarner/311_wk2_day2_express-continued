@@ -1,10 +1,10 @@
 const vehicles = require('../data/vehicles.js')
 
-const list = (req, res) => res.json(vehicles)
+module.exports.list = (req, res) => res.json(vehicles)
 
-const show = (req, res) => res.json(vehicles.filter(vehicle => vehicle._id === parseInt(req.params.id)))
+module.exports.show = (req, res) => res.json(vehicles.filter(vehicle => vehicle._id === parseInt(req.params.id)))
 
-const create = (req, res) => {
+module.exports.create = (req, res) => {
     vehicles.push({
         _id: vehicles.length + 1,
         ...req.body
@@ -12,8 +12,8 @@ const create = (req, res) => {
     res.json(vehicles)
 }
 
-module.exports = {
-    list,
-    show,
-    create
-}
+// module.exports = {
+//     list,
+//     show,
+//     create
+// }
